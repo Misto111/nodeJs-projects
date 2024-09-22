@@ -17,6 +17,11 @@ app.get("/contacts", (req, res) => {
 
 });
 
+app.post("/register", (req, res) => {
+    res.sendStatus(201);
+
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
