@@ -11,7 +11,7 @@ var bandName = "";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-function bandNameGenerator(req, res, next) {
+function bandNameGenerator(req, next) {
   console.log(req.body);
   bandName = req.body["street"] + req.body["pet"];
   next();
@@ -19,11 +19,11 @@ function bandNameGenerator(req, res, next) {
 
 app.use(bandNameGenerator);
 
-app.get("/", (req, res) => {
+app.get("/", (res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.post("/submit", (req, res) => {
+app.post("/submit", (res) => {
   res.send(`<h1>Your band name is:</h1><h2>${bandName}✌️</h2>`);
 });
 
